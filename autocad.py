@@ -4,7 +4,8 @@ import pyperclip
 
 workbook = openpyxl.load_workbook(r'C:\Users\Lucas\OneDrive\Área de Trabalho\Projeto automação de cadastro de produtos\produtos.xlsx')
 sheet_produtos = workbook['produtos']
-for linha in sheet_produtos.iter_rows(min_row=2, max_row=501):
+max_linha = sheet_produtos.max_row
+for linha in sheet_produtos.iter_rows(min_row=2, max_row=max_linha):
     produto = linha[0].value
     fornecedor = linha[1].value
     categoria = linha[2].value
